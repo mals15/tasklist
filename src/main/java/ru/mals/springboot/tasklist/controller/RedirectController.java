@@ -73,6 +73,12 @@ public class RedirectController {
         taskService.save(task);
         return "redirect:/index";
     }
+
+    @DeleteMapping("/{id}")
+    public String delete(@ModelAttribute("task") Task task) {
+        taskService.delete(task);
+        return "redirect:/index";
+    }
 /*    @Autowired
     private final TaskService taskService;
     @Autowired
@@ -88,11 +94,7 @@ public class RedirectController {
 
 
 
-    @DeleteMapping("/{id}")
-    public String delete(@ModelAttribute("task") Task task) {
-        taskService.delete(task);
-        return "redirect:/index";
-    }
+
 
  */
 }
