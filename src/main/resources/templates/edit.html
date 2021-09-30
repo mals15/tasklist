@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form th:method="GET" th:action="@{/edit/{id}(id=${task.getId()})}" th:object="${task}">
+    <label for="TaskName">Enter name: </label>
+    <input type="text" th:field="*{TaskName}" id="TaskName"/>
+    <div style="color:red" th:if="${#fields.hasErrors('TaskName')}" th:errors="*{TaskName" >Name error</div>
+    <br/>
+    <input type="submit" value="Update!"/>
+</form>
+
+</body>
+</html>

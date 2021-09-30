@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>new task</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/}" th:object="${task}">
+    <label for="taskName">Enter task name: </label>
+    <input type="text" th:field="*{taskName}" id="taskName"/>
+    <div style="color:#ff0000" th:if="${#fields.hasErrors('taskName')}" th:errors="*{taskName}" >taskName error</div>
+    <br/>
+    <label for="personName">Enter your name: </label>
+    <input type="text" th:field="*{personName}" id="personName"/>
+    <div style="color:#ff0000" th:if="${#fields.hasErrors('personName')}" th:errors="*{personName}" >personName error</div>
+    <br/>
+    <label for="sfera">Enter sfera: </label>
+    <input type="text" th:field="*{sfera}" id="sfera"/>
+    <div style="color:red" th:if="${#fields.hasErrors('sfera')}" th:errors="*{sfera}" >sfera error</div>
+    <br/>
+    <label for="numberTelephone">Enter your number telephon: </label>
+    <input type="text" th:field="*{numberTelephone}" id="numberTelephone"/>
+    <div style="color:red" th:if="${#fields.hasErrors('numberTelephone')}" th:errors="*{numberTelephone}" >Number error</div>
+    <br/>
+    <label for="description">Enter description: </label>
+    <input type="text" th:field="*{description}" id="description"/>
+    <div style="color:red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}" >description error</div>
+    <br/>
+    <label for="price">Enter price: </label>
+    <input type= "number" th:field="*{price}" id="price"/>
+    <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}" >price error</div>
+    <br/>
+    <label for="adress">Enter adress: </label>
+    <input type="text" th:field="*{adress}" id="adress"/>
+    <div style="color:red" th:if="${#fields.hasErrors('adress')}" th:errors="*{adress}" >adress error</div>
+    <br/>
+    <label for="coordinates">Enter coordinates: </label>
+    <input type="text" th:field="*{coordinates}" id="coordinates"/>
+    <div style="color:red" th:if="${#fields.hasErrors('coordinates')}" th:errors="*{coordinates}" >coordinates error</div>
+    <br/>
+    <label for="convTime">Enter convenientTime: </label>
+    <input type="text" th:field="*{convTime}" id="convTime"/>
+    <div style="color:red" th:if="${#fields.hasErrors('convTime')}" th:errors="*{convTime}" >convTime error</div>
+    <br/>
+    <label for="convDate">Enter convDate: </label>
+    <input type="text" th:field="*{convDate}" id="convDate"/>
+    <div style="color:red" th:if="${#fields.hasErrors('convDate')}" th:errors="*{convDate}" >convDate error</div>
+    <br/>
+    <input type="submit" value="Create!"/>
+</form>
+
+</body>
+</html>

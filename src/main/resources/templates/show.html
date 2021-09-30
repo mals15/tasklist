@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>show task</title>
+</head>
+<body>
+
+
+
+<p th:text="${task.getTaskName()}">VALUE</p>
+<p th:text="${task.getPersonName()}">VALUE</p>
+<p th:text="${task.getSfera()}">VALUE</p>
+<p th:text="${task.getNumberTelephone()}">VALUE</p>
+<p th:text="${task.getDescription()}">VALUE</p>
+<p th:text="${task.getPrice()}">VALUE</p>
+<p th:text="${task.getAdress()}">VALUE</p>
+<p th:text="${task.getCoordinates()}">VALUE</p>
+<p th:text="${task.getConvTime()}">VALUE</p>
+<p th:text="${task.getConvDate()}">VALUE</p>
+
+<br>
+<a th:href="@{/{id}/edit(id=${task.getId()})}">Edit</a>
+
+<form th:method="GET" th:action="@{/delete/{id}(id=${task.getId()})}">
+	
+	<input type="submit" value="Delete" />
+
+</form>
+
+
+</body>
+</html>
