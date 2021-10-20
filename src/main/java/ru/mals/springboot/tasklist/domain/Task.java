@@ -10,7 +10,7 @@ import org.hibernate.annotations.SelectBeforeUpdate;
 import javax.persistence.*;
 
 @Entity
-@Table(name="task", schema = "public", catalog = "tasklist_db")
+@Table(name="task", schema = "tasklist", catalog = "tasklist_db")
 
 @EqualsAndHashCode(of="id")
 @Getter @Setter
@@ -34,8 +34,6 @@ public class Task {
     private String Description;
     @Column (name="adress")
     private String Adress;
-    @Column (name="coordinates")
-    private String Coordinates;
     @Column (name="conv_time")
     private String ConvTime;
     @Column (name="conv_date")
@@ -94,14 +92,6 @@ public class Task {
 
     public void setAdress(String adress) {
         Adress = adress;
-    }
-
-    public String getCoordinates() {
-        return Coordinates;
-    }
-
-    public void setCoordinates(String coordinates) {
-        Coordinates = coordinates;
     }
 
     public String getConvTime() {

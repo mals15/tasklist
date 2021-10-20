@@ -1,25 +1,21 @@
 package ru.mals.springboot.tasklist.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.mals.springboot.tasklist.domain.Task;
 import ru.mals.springboot.tasklist.impl.TaskService;
-import ru.mals.springboot.tasklist.repository.TaskRepository;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.List;
-
 
 @Controller
 @RequestMapping("/")
 public class RedirectController {
 
-    @Autowired
-    private TaskService taskService;
+    private final TaskService taskService;
+
+    public RedirectController (TaskService taskService) {
+        this.taskService = taskService;
+    }
 
     @RequestMapping(value="", method = RequestMethod.GET)
     public String index() {

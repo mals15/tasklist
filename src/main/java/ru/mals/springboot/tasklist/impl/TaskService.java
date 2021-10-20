@@ -16,8 +16,11 @@ import java.util.Optional;
 @Transactional
 public class TaskService implements TaskDao {
 
-    @Autowired
-    private TaskRepository taskRepository;
+    private final TaskRepository taskRepository;
+
+    public TaskService (TaskRepository taskRepository) {
+        this.taskRepository = taskRepository;
+    }
 
     @Override
     public List getAll() {

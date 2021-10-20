@@ -11,7 +11,7 @@ import org.hibernate.annotations.SelectBeforeUpdate;
 import javax.persistence.*;
 
 @Entity
-@Table(name="user", schema = "public", catalog = "tasklist_db")
+@Table(name="user", schema = "tasklist", catalog = "tasklist_db")
 
 @EqualsAndHashCode
 @Getter @Setter
@@ -26,7 +26,7 @@ public class Person {
     private Long Id;
     @Column(name="name")
     private String Name;
-    @Column(name="nemb_tel")
+    @Column(name="numb_tel")
     private String NumbTel;
     @Column(name="email")
     private String Email;
