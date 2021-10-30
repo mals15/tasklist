@@ -12,7 +12,6 @@ import ru.mals.springboot.tasklist.service.factory.TaskFactory;
 import ru.mals.springboot.tasklist.service.mapper.TaskMapper;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class JpaTaskService implements TaskService {
@@ -59,7 +58,7 @@ public class JpaTaskService implements TaskService {
     }
 
     @Override
-    public TaskDto editTask(Long taskId, TaskEditDto taskEditDto) {
+    public TaskDto editTask(long taskId, TaskEditDto taskEditDto) {
         Task task = taskRepository.findById(taskId).orElseThrow();
         task.setTaskName(taskEditDto.getTaskName());
         task.setSfera(taskEditDto.getSfera());

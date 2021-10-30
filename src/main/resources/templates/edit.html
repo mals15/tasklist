@@ -6,10 +6,18 @@
 </head>
 <body>
 
-<form th:method="GET" th:action="@{/edit/{id}(id=${task.getId()})}" th:object="${task}">
-    <label for="TaskName">Enter name: </label>
-    <input type="text" th:field="*{TaskName}" id="TaskName"/>
-    <div style="color:red" th:if="${#fields.hasErrors('TaskName')}" th:errors="*{TaskName" >Name error</div>
+<form th:method="GET" th:action="@{/edit/{id}(id=${task.getTaskId()})}" th:object="${task}">
+   <label for="taskName">Enter name: </label>
+    <input type="text" th:field="*{taskName}" id="taskName"/>
+    <div style="color:red" th:if="${#fields.hasErrors('taskName')}" th:errors="*{taskName}" >Name error</div>
+
+    <label for="description">Enter description: </label>
+    <input type="text" th:field="*{description}" id="description"/>
+    <div style="color:red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}" >Name error</div>
+
+    <label for="price">Enter name: </label>
+    <input type="text" th:field="*{price}" id="price"/>
+    <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}" >Name error</div>
     <br/>
     <input type="submit" value="Update!"/>
 </form>

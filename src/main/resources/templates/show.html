@@ -19,9 +19,9 @@
 <p th:text="${task.getConvDate()}">VALUE</p>
 
 <br>
-<a th:href="@{/{id}/edit(id=${task.getId()})}">Edit</a>
+<a th:href="@{/{id}/edit(id=${task.getTaskId()})}">Edit</a>
 
-<form th:method="GET" th:action="@{/delete/{id}(id=${task.getId()})}">
+<form th:method="GET" th:action="@{/delete/{id}(id=${task.getTaskId()})}">
 	
 	<input type="submit" value="Delete" />
 

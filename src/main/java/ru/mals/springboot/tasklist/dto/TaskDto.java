@@ -1,5 +1,8 @@
 package ru.mals.springboot.tasklist.dto;
 
+import lombok.Getter;
+
+@Getter
 public class TaskDto {
 
     private final long taskId;
@@ -35,6 +38,4 @@ public class TaskDto {
         this.price = price;
     }
 
-    public TaskDto() {
-    }
 }

@@ -21,7 +21,7 @@ public class OperateController {
 
     @GetMapping("/new")
     public String newTask (Model model) {
-        model.addAttribute("task", new TaskDto());
+        model.addAttribute("task", new TaskCreateDto());
         return "/new";
     }
 
@@ -36,19 +36,19 @@ public class OperateController {
     }
 
     @GetMapping("{id}/edit")
-    public String edit (Model model, @PathVariable("id") int taskId) {
+    public String edit (Model model, @PathVariable("id") long taskId) {
         model.addAttribute("task", taskService.getTask(taskId));
         return "/edit";
     }
 
     @RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
-    public String update (@ModelAttribute("task") TaskEditDto taskEditDto, BindingResult bindingResult, @PathVariable("id") Long id) {
+    public String update (@ModelAttribute("task") TaskEditDto taskEditDto, BindingResult bindingResult, @PathVariable("id") long id) {
 
         if (bindingResult.hasErrors())
             return "/edit";
 
         taskService.editTask(id, taskEditDto);
-        return "redirect:/index";
+        return "redirect:/";
     }
 
     @RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
