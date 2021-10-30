@@ -12,15 +12,17 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="user", schema = "tasklist", catalog = "tasklist_db")
+@Getter
+@Setter
 
 @EqualsAndHashCode
-@Getter @Setter
-
 @DynamicUpdate
 @DynamicInsert
 @SelectBeforeUpdate
 
 public class Person {
+
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long Id;
@@ -30,6 +32,5 @@ public class Person {
     private String NumbTel;
     @Column(name="email")
     private String Email;
-
 
 }

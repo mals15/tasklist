@@ -11,9 +11,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="task", schema = "tasklist", catalog = "tasklist_db")
-
+@Getter
+@Setter
 @EqualsAndHashCode(of="id")
-@Getter @Setter
 
 @DynamicInsert
 @DynamicUpdate
@@ -23,109 +23,50 @@ public class Task {
 
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
-    private long Id;
+    private long id;
     @Column (name="task_name")
-    private String TaskName;
+    private String taskName;
     @Column (name="sfera")
-    private String Sfera;
+    private String sfera;
     @Column (name="number_telephone")
-    private String NumberTelephone;
+    private String numberTelephone;
     @Column (name="description")
-    private String Description;
+    private String description;
     @Column (name="adress")
-    private String Adress;
+    private String adress;
     @Column (name="conv_time")
-    private String ConvTime;
+    private String convTime;
     @Column (name="conv_date")
-    private String ConvDate;
+    private String convDate;
     @Column (name="person_name")
-    private String PersonName;
+    private String personName;
     @Column (name="price")
-    private String Price;
+    private String price;
+
+    public Task() {
+    }
+
+    public Task(String taskName,
+                String sfera,
+                String numberTelephone,
+                String description,
+                String adress,
+                String convTime,
+                String convDate,
+                String personName,
+                String price) {
+        this.taskName = taskName;
+        this.sfera = sfera;
+        this.numberTelephone = numberTelephone;
+        this.description = description;
+        this.adress = adress;
+        this.convTime = convTime;
+        this.convDate = convDate;
+        this.personName = personName;
+        this.price = price;
+    }
 
     @Override
-    public String toString () {return TaskName;}
-
-    public long getId() {
-        return Id;
-    }
-
-    public void setId(long id) {
-        Id = id;
-    }
-
-    public String getTaskName() {
-        return TaskName;
-    }
-
-    public void setTaskName(String taskName) {
-        TaskName = taskName;
-    }
-
-    public String getSfera() {
-        return Sfera;
-    }
-
-    public void setSfera(String sfera) {
-        Sfera = sfera;
-    }
-
-    public String getNumberTelephone() {
-        return NumberTelephone;
-    }
-
-    public void setNumberTelephone(String numberTelephone) {
-        NumberTelephone = numberTelephone;
-    }
-
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String description) {
-        Description = description;
-    }
-
-    public String getAdress() {
-        return Adress;
-    }
-
-    public void setAdress(String adress) {
-        Adress = adress;
-    }
-
-    public String getConvTime() {
-        return ConvTime;
-    }
-
-    public void setConvTime(String convTime) {
-        ConvTime = convTime;
-    }
-
-    public String getConvDate() {
-        return ConvDate;
-    }
-
-    public void setConvDate(String convDate) {
-        ConvDate = convDate;
-    }
-
-    public String getPersonName() {
-        return PersonName;
-    }
-
-    public void setPersonName(String personName) {
-        PersonName = personName;
-    }
-
-    public String getPrice() {
-        return Price;
-    }
-
-    public void setPrice(String price) {
-        Price = price;
-    }
-
-
+    public String toString () {return taskName;}
 
 }

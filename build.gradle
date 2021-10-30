@@ -20,7 +20,8 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-security:+')
     implementation("org.springframework.boot:spring-boot-starter-actuator:+")
     implementation("org.springframework.boot:spring-boot-starter-aop:+")
-    implementation 'org.projectlombok:lombok:+'
+    annotationProcessor "org.projectlombok:lombok:1.18.20"
+    compileOnly 'org.projectlombok:lombok:1.18.20'
     implementation 'com.google.guava:guava:+'
  //   implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.25'
     implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.23'

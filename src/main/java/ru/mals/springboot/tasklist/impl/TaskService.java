@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Transactional
 public class TaskService implements TaskDao {
 
     private final TaskRepository taskRepository;
@@ -47,16 +46,17 @@ public class TaskService implements TaskDao {
         }
     }
 
+    @Transactional
     @Override
     public Task save(Task task) {
         return taskRepository.save(task);
     }
 
+    @Transactional
     @Override
     public void delete(Task task) {
         taskRepository.delete(task);
     }
-
 
     @Override
     public Page getAll(int pageNumber, int pageSize, String sortField, Sort.Direction sortDirection) {
