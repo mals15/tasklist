@@ -35,10 +35,6 @@
     <input type="text" th:field="*{adress}" id="adress"/>
     <div style="color:red" th:if="${#fields.hasErrors('adress')}" th:errors="*{adress}" >adress error</div>
     <br/>
-    <label for="coordinates">Enter coordinates: </label>
-    <input type="text" th:field="*{coordinates}" id="coordinates"/>
-    <div style="color:red" th:if="${#fields.hasErrors('coordinates')}" th:errors="*{coordinates}" >coordinates error</div>
-    <br/>
     <label for="convTime">Enter convenientTime: </label>
     <input type="text" th:field="*{convTime}" id="convTime"/>
     <div style="color:red" th:if="${#fields.hasErrors('convTime')}" th:errors="*{convTime}" >convTime error</div>

@@ -11,25 +11,26 @@ import org.hibernate.annotations.SelectBeforeUpdate;
 import javax.persistence.*;
 
 @Entity
-@Table(name="user", schema = "public", catalog = "tasklist_db")
+@Table(name="user", schema = "tasklist", catalog = "tasklist_db")
+@Getter
+@Setter
 
 @EqualsAndHashCode
-@Getter @Setter
-
 @DynamicUpdate
 @DynamicInsert
 @SelectBeforeUpdate
 
 public class Person {
+
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long Id;
     @Column(name="name")
     private String Name;
-    @Column(name="nemb_tel")
+    @Column(name="numb_tel")
     private String NumbTel;
     @Column(name="email")
     private String Email;
-
 
 }
