@@ -10,38 +10,42 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 targetCompatibility = '11'
 
+task runApp(type: JavaExec) {
+   // classpath = ru.mals.springboot.tasklist
+    mainClassName = 'ru.mals.springboot.tasklist.TasklistApplication'
+}
+
 jar {
     manifest {
         attributes 'Main-Class': 'ru.mals.springboot.tasklist.TasklistApplication'
     }
-
 }
+
 task fatJar(type: Jar) {
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
-
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compileOnly  'org.springframework.boot:spring-boot-starter'
-    compileOnly  'org.springframework.boot:spring-boot-starter-web'
-    compileOnly ('org.springframework.boot:spring-boot-starter-data-jpa:+')
-    compileOnly ('org.springframework.boot:spring-boot-starter-security:+')
-    compileOnly ("org.springframework.boot:spring-boot-starter-actuator:+")
-    compileOnly ("org.springframework.boot:spring-boot-starter-aop:+")
-    compileOnly  'org.springframework.boot:spring-boot-gradle-plugin:2.5.6'
+    implementation   'org.springframework.boot:spring-boot-starter'
+    implementation  'org.springframework.boot:spring-boot-starter-web'
+    implementation ('org.springframework.boot:spring-boot-starter-data-jpa:+')
+    implementation ('org.springframework.boot:spring-boot-starter-security:+')
+    implementation ("org.springframework.boot:spring-boot-starter-actuator:+")
+    implementation ("org.springframework.boot:spring-boot-starter-aop:+")
+    implementation  'org.springframework.boot:spring-boot-gradle-plugin:2.5.6'
 
-    compileOnly  "org.projectlombok:lombok:1.18.20"
-    compileOnly  'org.projectlombok:lombok:1.18.20'
+    implementation  "org.projectlombok:lombok:1.18.20"
+    annotationProcessor  'org.projectlombok:lombok:1.18.20'
     compileOnly  'com.google.guava:guava:+'
  //   implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.25'
-    compileOnly  group: 'org.postgresql', name: 'postgresql', version: '42.2.23'
-//    providedCompile 'javax:javaee-api:7.0'
-    compileOnly ("org.thymeleaf:thymeleaf-spring5:3.0.12.RELEASE")
-    compileOnly ("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.5.3")
-    compileOnly  'org.flywaydb:flyway-core:7.15.0'
+    implementation   group: 'org.postgresql', name: 'postgresql', version: '42.2.23'
+//  implementation ompile 'javax:javaee-api:7.0'
+    implementation  ("org.thymeleaf:thymeleaf-spring5:3.0.12.RELEASE")
+    implementation  ("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.5.3")
+    implementation   'org.flywaydb:flyway-core:7.15.0'
 }
