@@ -11,7 +11,7 @@ import javax.persistence.*;
 
 @Entity
 //@Table(name="task", schema = "tasklist", catalog = "tasklist_db")
-@Table(name="task", schema = "tasklist")
+@Table(name="task")
 @Getter
 @Setter
 @EqualsAndHashCode(of="id")
