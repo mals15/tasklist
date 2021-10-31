@@ -11,7 +11,8 @@ import org.hibernate.annotations.SelectBeforeUpdate;
 import javax.persistence.*;
 
 @Entity
-@Table(name="user", schema = "tasklist", catalog = "tasklist_db")
+@Table(name="user")
+//@Table(name="user", schema = "tasklist", catalog = "tasklist_db")
 @Getter
 @Setter
 

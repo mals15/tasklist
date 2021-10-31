@@ -10,7 +10,8 @@ import org.hibernate.annotations.SelectBeforeUpdate;
 import javax.persistence.*;
 
 @Entity
-@Table(name="task", schema = "tasklist", catalog = "tasklist_db")
+//@Table(name="task", schema = "tasklist", catalog = "tasklist_db")
+@Table(name="task", schema = "tasklist")
 @Getter
 @Setter
 @EqualsAndHashCode(of="id")
