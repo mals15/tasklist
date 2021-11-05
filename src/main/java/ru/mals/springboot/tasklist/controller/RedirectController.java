@@ -2,10 +2,8 @@ package ru.mals.springboot.tasklist.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.mals.springboot.tasklist.annotation.Loggable;
-import ru.mals.springboot.tasklist.domain.Task;
 import ru.mals.springboot.tasklist.service.TaskService;
 
 @Controller
