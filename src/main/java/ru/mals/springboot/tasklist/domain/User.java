@@ -21,17 +21,17 @@ import javax.persistence.*;
 @DynamicInsert
 @SelectBeforeUpdate
 
-public class Person {
+public class User {
 
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long Id;
     @Column(name="name")
-    private String Name;
+    private String name;
     @Column(name="numb_tel")
-    private String NumbTel;
+    private String numbTel;
     @Column(name="email")
-    private String Email;
+    private String email;
 
 }
