@@ -20,20 +20,20 @@ public class RedirectController {
 
     @RequestMapping(value="", method = RequestMethod.GET)
     public String index() {
-        return "/index";
+        return "index";
     }
 
     @Loggable
     @RequestMapping(value="showAll", method = RequestMethod.GET)
     public String showAll(Model model) {
         model.addAttribute("tasks", taskService.getAllTasks());
-        return "/showAll";
+        return "showAll";
     }
 
     @GetMapping("tasks/{id}")
     public String show(@PathVariable("id") long taskId, Model model) {
         model.addAttribute("task", taskService.getTask(taskId));
-        return "/show";
+        return "show";
     }
 
 }
