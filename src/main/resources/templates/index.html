@@ -4,17 +4,65 @@
     <meta charset="utf-8">
     <title>Task List</title>
 <!--    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}">-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> -->
+<style>
+    <style>
+        *{box-sizing: border-box; margin: 0; padding: 0;}
+        .container{
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .top-menu{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .logo{
+            display: block;
+            width: 100px;
+            height: 50px;
+            background-color: olive;
+            /* background: url(); */
+        }
+        /* обращаемся к ul у которой родитель именно top-menu за счёт ">", обращаетс непосредственно к ребенку этого родителя */
+        .top-menu > ul{
+            list-style-type: none;           
+        }
+        .top-menu > ul > li {
+            display: inline-block;
+            margin: 0 0 0 10px;
+        }
+        .top-menu a{
+            text-decoration: none;
+            color: #666;
+            text-transform:uppercase;
+        }
+        /* hover мышка навелась над элементом */
+        .top-menu > ul a:hover{
+            color: mediumslateblue;
+            border-bottom:  1px solid mediumslateblue;
+        }
+        header{
+            box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+            padding: 10px 0;
+        }
+    </style>
+</style>
 </head>
 <body>
-
-<article class="article article_whitebg article_first">
-    <h2 class="black">Это мой тестовый<br>проект!</h2>
-    <p class="black">Выбери задачу из уже предложенных <strong>или</strong> добавь свою задачу!</p>
-</article>
-<a href="/showAll"> Show all tasks</a>
-<br>
-<a href="/new"> Create a new task</a>
-
+    <div class="container">
+        <div class="top-menu">
+            <a class="logo" href="#"></a>
+            <ul>
+                <li><a href="/new">Создать задание</a></li>
+                <li><a href="/showAll">Найти задание себе</a></li>
+                <li><a href="#">Найти исполнителя</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+    <h1>Освободим вас от забот</h1>
+    <h2>Поможем найти надежного исполнителя для любых задач</h2>
 </body>
 </html>
