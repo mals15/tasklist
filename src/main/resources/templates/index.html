@@ -1,198 +1,279 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://thymeleaf.org">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Task List</title>
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--    <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}">-->
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> -->
-<style>
-    *{box-sizing: border-box; margin: 0; padding: 0;}
-    .container{
-        width: 90%;
-        max-width: 900px;
-        margin: 0 auto;
-    }
-    .top-menu{
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-    }
-    .logo{
-        display: block;
-        width: 100px;
-        height: 50px;
-        background-color: olive;
-        /* background: url(); */
-    }
-    /* обращаемся к ul у которой родитель именно top-menu за счёт ">", обращаетс непосредственно к ребенку этого родителя */
-    .menu-wrap > ul{
-        list-style-type: none;           
-    }
-    .menu-wrap > ul > li {
-        display: inline-block;
-        margin: 0 0 0 10px;
-    }
-    .top-menu a{
-        text-decoration: none;
-        color: #666;
-        text-transform:uppercase;
-    }
-    /* hover мышка навелась над элементом */
-    .menu-wrap > ul a:hover{
-        color: mediumslateblue;
-        border-bottom:  1px solid mediumslateblue;
-    }
-    header{
-        box-shadow: 0 1px 3px rgba(0,0,0,0.25);
-        padding: 10px 0;
-    }
-    .menu-wrap > ul:nth-child(1){
-        font-size: 12px;
-        /* display: flex;
-        justify-content:flex-end ; */
+    <title>Адаптив</title>
+    <style>
+        *{box-sizing: border-box; margin: 0; padding: 0;}
 
-    }
-    .menu-wrap > ul:nth-child(1) a{
-        text-transform: initial;
-    }
-    .menu-wrap{
-        height: 50px;
-        display: flex;
-        /* развернем оси по часовой срелке */
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-end;
-    }
-    .gamburger{
-        display: none;
-        width: 40px;
-    }
-    .gamburger div{
-        width: 100%;
-        height: 2px;
-        background-color: #666;
-        margin-bottom: 8px;
-        transition: all 0.5s ease;
-    }
-    .gamburger.open div:nth-child(2){
-        transform: scale(0);
-    }
-    .gamburger.open div:nth-child(1){
-        transform: translateY(10px) ;
-    }
-    .gamburger.open div:nth-child(3){
-        transform: translateY(-10px) ;
-    }
-    .mobile-menu{
-        position: fixed;
-        width: 100%;
-        max-width: 205px;
-        right: 0;
-        top: 72px;
-        height: calc(100vh - 72px);
-        background-color: aliceblue;
-        padding: 10px;
-        text-align: right ;
-        transition: all 0.5s ease;
-        transform: translateX(100%);
-        opacity: 0;
-        pointer-events: none;
-
-    }
-    /* обраться к соседу через "+" */
-    .gamburger.open + .mobile-menu{
-        transform: translateX(0);
-        opacity: 1; 
-        pointer-events: auto;
-    }
-    .menu-wrap .mobile-menu > li{
-        display: block;
-        margin: 0 0 10px 0;
-    }
-    @media only screen and (max-width:740px) {
-        .menu-wrap > ul:nth-child(2){
-            font-size: 14px;
+        p{
+            margin: 2em 0;
         }
-        h1{
-            font-size: 20px;
+        .container{
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto;
         }
-        h2{
-            font-size: 18px;
+        .top-menu{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
         }
-    }
-    @media only screen and (max-width: 650px){
-        .menu-wrap > ul:nth-child(2){
-            font-size: 12px;
-
+        .logo{
+            display: block;
+            width: 50px;
+            height: 50px;
+            background-image: url(/img/logo.png);
+            background-size: contain;
         }
-        .menu-wrap > ul > li{
-            margin: 0 0 0 5px;
-        }
-    }
-    @media only screen and (max-width: 560px) {
+        /* обращаемся к ul у которой родитель именно top-menu за счёт ">", обращаетс непосредственно к ребенку этого родителя */
         .menu-wrap > ul{
-            display: none;
+            list-style-type: none;
         }
-        .menu-wrap > ul.mobile-menu{
-            display: block;
+        .menu-wrap > ul > li {
+            display: inline-block;
+            margin: 0 0 0 10px;
         }
-        .gamburger{
-            display: block;
+        .top-menu a{
+            text-decoration: none;
+            color: #666;
+            text-transform:uppercase;
+        }
+        /* hover мышка навелась над элементом */
+        .menu-wrap > ul a:hover{
+            color: mediumslateblue;
+            border-bottom:  1px solid mediumslateblue;
+        }
+        .menu-wrap > ul li.active a{
+            color: #f0f0f0;
 
+        }
+        .menu-wrap > ul li.active a:hover{
+            border-bottom: none;
+            cursor: default;
+        }
+        header{
+            box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+            padding: 10px 0;
+        }
+        .menu-wrap > ul:nth-child(1){
+            font-size: 12px;
+            /* display: flex;
+            justify-content:flex-end ; */
+
+        }
+        .menu-wrap > ul:nth-child(1) a{
+            text-transform: initial;
         }
         .menu-wrap{
-            justify-content: center;
+            height: 50px;
+            display: flex;
+            /* развернем оси по часовой срелке */
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
         }
-    }
-</style>
+        .gamburger{
+            display: none;
+            width: 40px;
+        }
+        .gamburger div{
+            width: 100%;
+            height: 2px;
+            background-color: #666;
+            margin-bottom: 8px;
+            transition: all 0.5s ease;
+        }
+        .gamburger.open div:nth-child(2){
+            transform: scale(0);
+        }
+        .gamburger.open div:nth-child(1){
+            transform: translateY(10px) ;
+        }
+        .gamburger.open div:nth-child(3){
+            transform: translateY(-10px) ;
+        }
+        .mobile-menu{
+            position: fixed;
+            width: 100%;
+            max-width: 205px;
+            right: 0;
+            top: 72px;
+            height: calc(100vh - 72px);
+            background-color: aliceblue;
+            padding: 10px;
+            text-align: right ;
+            transition: all 0.5s ease;
+            transform: translateX(100%);
+            opacity: 0;
+            pointer-events: none;
+
+        }
+        /* обраться к соседу через "+" */
+        .gamburger.open + .mobile-menu{
+            transform: translateX(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .menu-wrap .mobile-menu > li{
+            display: block;
+            margin: 0 0 10px 0;
+        }
+        footer{
+            background-color: darkkhaki;
+            min-height: 100px;
+        }
+        .footer-wrap{
+            display: flex;
+        }
+        main{
+            min-height: calc(100vh - 70px - 107px);
+        }
+        .footer-wrap{
+            display: flex;
+            justify-content: space-between;
+            padding: 1em 0;
+        }
+        .footer-wrap ul{
+            list-style-type: none;
+        }
+        .footer-wrap a{
+            text-decoration: none ;
+            color: rgb(36, 36, 36);
+        }
+        .footer-wrap li{
+            margin: 5px 0;
+        }
+        .footer-wrap  ul a:hover{
+            color: mediumslateblue;
+            border-bottom:  1px solid mediumslateblue;
+        }
+        @media only screen and (max-width:740px) {
+            .menu-wrap > ul:nth-child(2){
+                font-size: 14px;
+            }
+            h1{
+                font-size: 20px;
+            }
+            h2{
+                font-size: 18px;
+            }
+        }
+        @media only screen and (max-width: 650px){
+            .menu-wrap > ul:nth-child(2){
+                font-size: 12px;
+
+            }
+            .menu-wrap > ul > li{
+                margin: 0 0 0 5px;
+            }
+        }
+        @media only screen and (max-width: 560px) {
+            .menu-wrap > ul{
+                display: none;
+            }
+            .menu-wrap > ul.mobile-menu{
+                display: block;
+            }
+            .gamburger{
+                display: block;
+
+            }
+            .menu-wrap{
+                justify-content: center;
+            }
+            .footer-wrap{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 200px;
+            }
+            .footer-column{
+                margin-bottom: 15px;
+            }
+            main{
+                min-height: calc(100vh - 70px - 185px);
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="top-menu">
-                <a class="logo" href="#"></a>
-                <div class="menu-wrap">
-                    <ul>
-                        <li><a href="#">Вход</a></li>
-                    </ul>
-                    <!-- ul>li*3>a[href="#"] -->
-                    <ul>
-                        <li><a href="/new">Создать задание</a></li>
-                        <li><a href="/showAll">Найти задание себе</a></li>
-                        <li><a href="#">Найти исполнителя</a></li>
-                    </ul>
-                    <!-- .gamburger>div*3 -->
-                    <div class="gamburger">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <!-- ul.mobile-menu>li*3>a[href=""] -->
-                    <ul class="mobile-menu">
-                        <li><a href="/new">Создать задание</a></li>
-                        <li><a href="/showAll">Найти задание себе</a></li>
-                        <li><a href="">Найти исполнителя</a></li>
-                        <li><a href="">Вход</a></li>
-                    </ul>
+
+<header>
+
+    <div class="container">
+        <div class="top-menu">
+            <a class="logo" href="#"></a>
+            <div class="menu-wrap">
+                <ul>
+                    <li><a href="#">Вход</a></li>
+                </ul>
+                <!-- ul>li*3>a[href="#"] -->
+                <ul>
+                    <li ><a href="/new">Создать задание</a></li>
+                    <li><a href="/showAll">Найти задание себе</a></li>
+                    <li><a href="#">Найти исполнителя</a></li>
+                </ul>
+                <!-- .gamburger>div*3 -->
+                <div class="gamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
                 </div>
+                <!-- ul.mobile-menu>li*3>a[href=""] -->
+                <ul class="mobile-menu">
+                    <li ><a href="/new">Создать задание</a></li>
+                    <li><a href="/showAll">Найти задание себе</a></li>
+                    <li><a href="">Найти исполнителя</a></li>
+                    <li><a href="">Вход</a></li>
+                </ul>
             </div>
         </div>
-    </header>
+    </div>
+</header>
+<main>
     <h1>Освободим вас от забот</h1>
     <h2>Поможем найти надежного исполнителя для любых задач</h2>
     <div class="container">
         <!-- p*20>Lorem -->
-       
+        <p>Fuga dolorum ut ipsa iusto asperiores architecto reprehenderit culpa at fugit, iure id nesciunt reiciendis nobis sequi laborum consequuntur assumenda alias, suscipit temporibus voluptatibus quibusdam pariatur placeat. Pariatur, adipisci velit?</p>
+        <p>Quasi illum, dicta eligendi voluptatibus optio ea eaque mollitia. Itaque nobis provident suscipit voluptatem debitis soluta fuga cumque neque culpa quia, ratione dignissimos asperiores sequi. Officia quas est eos autem.</p>
     </div>
-    <script>
-        let el_gamburger = document.querySelector(".gamburger");
-        if (el_gamburger) {
-            el_gamburger.addEventListener("click", () => {
-                el_gamburger.classList.toggle("open");
-            });
-        }
-    </script>
+</main>
+<footer>
+    <div class="container">
+        <div class="footer-wrap">
+            <div class="footer-column">(c) CopyRight 2021
+            </div>
+            <div class="footer-column">
+                <ul>
+                    <li ><a href="/new">Создать задание</a></li>
+                    <li><a href="/showAll">Найти задание себе</a></li>
+                    <li><a href="#">Найти исполнителя</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <ul>
+                    <li>email: <a href="mail:email@gmail.com">email@gmail.com</a></li>
+                    <li>tel: <a href="tel:+79991799988">+79991799988</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    let el_gamburger = document.querySelector(".gamburger");
+
+    if (el_gamburger) {
+        el_gamburger.addEventListener("click", () => {
+            el_gamburger.classList.toggle("open");
+        });
+    }
+    [].forEach.call(document.querySelectorAll('li.active a'), (el_a) =>{
+
+    })
+</script>
 </body>
 </html>
