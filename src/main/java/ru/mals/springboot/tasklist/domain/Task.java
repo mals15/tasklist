@@ -35,9 +35,6 @@ public class Task {
     private String personName;
     private String price;
     private long userId;
-    @ManyToOne
-    @JoinColumn(name = "user_id", insertable = false, updatable = false)
-    private User user;
 
     public Task() {
     }
