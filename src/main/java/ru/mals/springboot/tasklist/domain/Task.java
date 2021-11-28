@@ -11,7 +11,7 @@ import javax.persistence.*;
 
 @Entity
 //@Table(name="task", schema = "tasklist", catalog = "tasklist_db")
-@Table(name="task")
+@Table(name="t_task")
 @Getter
 @Setter
 @EqualsAndHashCode(of="id")
@@ -43,6 +43,8 @@ public class Task {
     private String personName;
     @Column (name="price")
     private String price;
+
+    private long userid;
 
     public Task() {
     }

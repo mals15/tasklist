@@ -1,4 +1,4 @@
-package ru.mals.springboot.tasklist.dao;
+package ru.mals.springboot.tasklist.dao_old;
 
 import ru.mals.springboot.tasklist.domain.Task;
 

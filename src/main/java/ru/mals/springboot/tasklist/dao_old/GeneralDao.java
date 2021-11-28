@@ -1,4 +1,4 @@
-package ru.mals.springboot.tasklist.dao;
+package ru.mals.springboot.tasklist.dao_old;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;

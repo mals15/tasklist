@@ -1,11 +1,10 @@
-package ru.mals.springboot.tasklist.impl;
+package ru.mals.springboot.tasklist.impl_old;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.mals.springboot.tasklist.dao.TaskDao;
+import ru.mals.springboot.tasklist.dao_old.TaskDao;
 import ru.mals.springboot.tasklist.domain.Task;
 import ru.mals.springboot.tasklist.repository.TaskRepository;
 

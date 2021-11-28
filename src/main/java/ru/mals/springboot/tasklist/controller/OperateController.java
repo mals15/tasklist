@@ -26,7 +26,8 @@ public class OperateController {
     }
 
     @PostMapping("")
-    public String create(@ModelAttribute("task") TaskCreateDto taskCreateDtoDto, BindingResult bindingResult, Model model) {
+    public String create(@ModelAttribute("task") TaskCreateDto taskCreateDtoDto,
+                         BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors())
             return "new";
@@ -42,7 +43,8 @@ public class OperateController {
     }
 
     @RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
-    public String update (@ModelAttribute("task") TaskEditDto taskEditDto, BindingResult bindingResult, @PathVariable("id") long id) {
+    public String update (@ModelAttribute("task") TaskEditDto taskEditDto,
+                          BindingResult bindingResult, @PathVariable("id") long id) {
 
         if (bindingResult.hasErrors())
             return "edit";

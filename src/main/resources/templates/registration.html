@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body>
+
+<form action="#" th:method="POST" th:action="@{/registration}" th:object="${userForm}">
+    <div class="mb-3">
+        <label for="UrlAdress" class="form-label">Login</label>
+        <input type="text" class="form-control" id="UrlAdress" aria-describedby="emailHelp" th:field="*{username}">
+        <p class="form-text" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">taskName error</p>
+    </div>
+    <div class="mb-3">
+        <label for="UrlAdress" class="form-label">Телефон</label>
+        <input type="text" class="form-control" id="UrlAdress" aria-describedby="emailHelp" th:field="*{numbTel}">
+        <p class="form-text" th:if="${#fields.hasErrors('numbTel')}" th:errors="*{numbTel}">taskName error</p>
+    </div>
+    <div class="mb-3">
+        <label for="UrlAdress" class="form-label">Email</label>
+        <input type="text" class="form-control" id="UrlAdress" aria-describedby="emailHelp" th:field="*{email}">
+        <p class="form-text" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">taskName error</p>
+    </div>
+    <div class="mb-3">
+        <label for="UserName" class="form-label">Password</label>
+        <input type="password" class="form-control" id="UserName" th:field="*{password}">
+        <p class="form-text" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">UserName error</p>
+    </div>
+    <div class="mb-3">
+        <label for="UserName" class="form-label">Password</label>
+        <input type="password" class="form-control" id="UserName" th:field="*{passwordConfirm}">
+        <p class="form-text" th:if="${#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordConfirm}">UserName error</p>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Зарегестрироваться</button>
+</form>
+
+    <a href="/">Главная</a>
+</div>
+
+</body>
+</html>
