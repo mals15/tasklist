@@ -1,26 +1,109 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактирование</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
 </head>
 <body>
+    <header>
+        <div class="container">
+            <div class="top-menu">
+                <a class="logo" href="/"></a>
+                <div class="menu-wrap">
+                    <ul>
+                        <li><a href="/login">Вход</a></li>
+                    </ul>
+                    <!-- ul>li*3>a[href="#"] -->
+                    <ul>
+                        <li ><a href="/new">Создать задание</a></li>
+                        <li><a href="/showAll">Найти задание себе</a></li>
+                        <li><a href="#">Найти исполнителя</a></li>
+                    </ul>
+                    <!-- .gamburger>div*3 -->
+                    <div class="gamburger">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <!-- ul.mobile-menu>li*3>a[href=""] -->
+                    <ul class="mobile-menu">
+                        <li ><a href="/new">Создать задание</a></li>
+                        <li><a href="/showAll">Найти задание себе</a></li>
+                        <li><a href="">Найти исполнителя</a></li>
+                        <li><a href="/login">Вход</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <form th:method="GET" th:action="@{/edit/{id}(id=${task.getTaskId()})}" th:object="${task}">
+            <label for="taskName">Enter name: </label>
+            <input type="text" th:field="*{taskName}" id="taskName"/>
+            <div style="color:red" th:if="${#fields.hasErrors('taskName')}" th:errors="*{taskName}" >Name error</div>
 
-<form th:method="GET" th:action="@{/edit/{id}(id=${task.getTaskId()})}" th:object="${task}">
-   <label for="taskName">Enter name: </label>
-    <input type="text" th:field="*{taskName}" id="taskName"/>
-    <div style="color:red" th:if="${#fields.hasErrors('taskName')}" th:errors="*{taskName}" >Name error</div>
+            <label for="sfera">Enter sfera: </label>
+            <input type="text" th:field="*{taskName}" id="sfera"/>
+            <div style="color:red" th:if="${#fields.hasErrors('sfera')}" th:errors="*{sfera}" >sfera error</div>
 
-    <label for="description">Enter description: </label>
-    <input type="text" th:field="*{description}" id="description"/>
-    <div style="color:red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}" >Name error</div>
+            <label for="adress">Enter price: </label>
+            <input type="text" th:field="*{adress}" id="adress"/>
+            <div style="color:red" th:if="${#fields.hasErrors('adress')}" th:errors="*{adress}" >adress error</div>
 
-    <label for="price">Enter name: </label>
-    <input type="text" th:field="*{price}" id="price"/>
-    <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}" >Name error</div>
-    <br/>
-    <input type="submit" value="Update!"/>
-</form>
+            <label for="convTime">Enter convTime: </label>
+            <input type="text" th:field="*{convTime}" id="convTime"/>
+            <div style="color:red" th:if="${#fields.hasErrors('convTime')}" th:errors="*{convTime}" >convTime error</div>
 
+            <label for="convDate">Enter convDate: </label>
+            <input type="text" th:field="*{convDate}" id="convDate"/>
+            <div style="color:red" th:if="${#fields.hasErrors('convDate')}" th:errors="*{convDate}" >convDate error</div>
+
+            <label for="description">Enter description: </label>
+            <input type="text" th:field="*{description}" id="description"/>
+            <div style="color:red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}" >description error</div>
+
+            <label for="price">Enter price: </label>
+            <input type="text" th:field="*{price}" id="price"/>
+            <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}" >price error</div>
+            <br/>
+            <input type="submit" value="Update!"/>
+        </form>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-wrap">
+                <div class="footer-column">(c) CopyRight 2021
+                </div>
+                <div class="footer-column">
+                    <ul>
+                        <li ><a href="/new">Создать задание</a></li>
+                        <li><a href="/showAll">Найти задание себе</a></li>
+                        <li><a href="#">Найти исполнителя</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <ul>
+                        <li>email: <a href="mail:email@gmail.com">email@gmail.com</a></li>
+                        <li>tel: <a href="tel:+79991799988">+79991799988</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+        <script>
+            let el_gamburger = document.querySelector(".gamburger");
+    
+            if (el_gamburger) {
+                el_gamburger.addEventListener("click", () => {
+                    el_gamburger.classList.toggle("open");
+                });
+            }
+            [].forEach.call(document.querySelectorAll('li.active a'), (el_a) =>{
+    
+            })
+        </script>
 </body>
 </html>

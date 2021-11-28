@@ -25,26 +25,19 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
     private long id;
-    @Column (name="task_name")
     private String taskName;
-    @Column (name="sfera")
     private String sfera;
-    @Column (name="number_telephone")
     private String numberTelephone;
-    @Column (name="description")
     private String description;
-    @Column (name="adress")
     private String adress;
-    @Column (name="conv_time")
     private String convTime;
-    @Column (name="conv_date")
     private String convDate;
-    @Column (name="person_name")
     private String personName;
-    @Column (name="price")
     private String price;
-
-    private long userid;
+    private long userId;
+    @ManyToOne
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
+    private User user;
 
     public Task() {
     }
