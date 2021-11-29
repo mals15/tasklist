@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вход</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}">
 </head>
 <body>
     <header>
@@ -56,15 +56,19 @@
                     <button type="submit" class="btn btn-primary">Создать</button>
                     <button type="reset" class="btn btn-primary">Reset</button>
                 </form>-->
+        <form method="POST" action="/login">
         <div>
             <input name="username" type="text" placeholder="Username"
                 autofocus="true"/>
             <input name="password" type="password" placeholder="Password"/>
             <button type="submit">Log In</button>
+
             <h4><a href="/registration">Зарегистрироваться</a></h4>
         </div>
+        </form>
         <br>
     </main>
+
     <footer>
         <div class="container">
             <div class="footer-wrap">
